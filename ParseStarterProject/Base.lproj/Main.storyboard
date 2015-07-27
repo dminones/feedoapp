@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jgQ-Je-N5x">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Device View Controller-->
+        <scene sceneID="Lwb-OR-3Gh">
+            <objects>
+                <viewController storyboardIdentifier="DeviceViewController" id="tkv-LK-f6D" customClass="DeviceViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Kd-G7-SYi"/>
+                        <viewControllerLayoutGuide type="bottom" id="lMG-c2-7Xz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QG7-6H-fdM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlE-EQ-FQj">
+                                <rect key="frame" x="16" y="106" width="568" height="30"/>
+                                <state key="normal" title="Configurar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Icv-wj-maw" kind="show" id="nV3-cV-Xsp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GlE-EQ-FQj" firstAttribute="top" secondItem="5Kd-G7-SYi" secondAttribute="bottom" constant="86" id="Dc8-79-Cc4"/>
+                            <constraint firstItem="GlE-EQ-FQj" firstAttribute="leading" secondItem="QG7-6H-fdM" secondAttribute="leadingMargin" id="cfw-2A-650"/>
+                            <constraint firstItem="GlE-EQ-FQj" firstAttribute="trailing" secondItem="QG7-6H-fdM" secondAttribute="trailingMargin" id="etP-YB-5NU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9fb-ZE-UUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823" y="-468"/>
+        </scene>
+        <!--Feed Settings Table View Controller-->
+        <scene sceneID="pHa-Qo-kqe">
+            <objects>
+                <tableViewController id="Icv-wj-maw" customClass="FeedSettingsTableViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="NGU-m3-5Yy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6cZ-TE-gJu">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6cZ-TE-gJu" id="nMD-hU-QDJ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Icv-wj-maw" id="rHw-IQ-B2C"/>
+                            <outlet property="delegate" destination="Icv-wj-maw" id="NHp-zA-SwB"/>
+                        </connections>
+                    </tableView>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="parseClassName" value="FeedSetting"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="textKey" value="timeToShow"/>
+                    </userDefinedRuntimeAttributes>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WG2-Nf-sRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1498" y="-468"/>
+        </scene>
+        <!--Devices-->
+        <scene sceneID="vEC-TM-xRc">
+            <objects>
+                <tableViewController title="Devices" id="0Ew-mv-5T1" customClass="DevicesTableViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="9cf-vk-x5t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hR2-pr-qbX">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hR2-pr-qbX" id="L5q-FB-5dZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Ew-mv-5T1" id="juM-Dv-l7T"/>
+                            <outlet property="delegate" destination="0Ew-mv-5T1" id="UVF-iF-oZ1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Devices" id="aGI-d9-iu7"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="parseClassName" value="FeedoDevice"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="textKey" value="name"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="objectsPerPage">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cou-kK-qX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="419" y="323"/>
+        </scene>
+        <!--Add Feed Setting-->
+        <scene sceneID="qO0-Fe-vil">
+            <objects>
+                <viewController storyboardIdentifier="FeedSettingViewController" title="Add Feed Setting" id="dAF-gx-xRb" customClass="FeedSettingViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xsk-8I-Hcl"/>
+                        <viewControllerLayoutGuide type="bottom" id="39M-xB-JrP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KfZ-BS-M2a">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="T7S-9z-jvS">
+                                <rect key="frame" x="0.0" y="64" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="459467214.36307698">
+                                    <!--2015-07-24 21:46:54 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T7S-9z-jvS" firstAttribute="leading" secondItem="KfZ-BS-M2a" secondAttribute="leading" id="NW9-Ud-lhn"/>
+                            <constraint firstItem="T7S-9z-jvS" firstAttribute="top" secondItem="Xsk-8I-Hcl" secondAttribute="bottom" id="Wtt-tX-Xph"/>
+                            <constraint firstAttribute="trailing" secondItem="T7S-9z-jvS" secondAttribute="trailing" id="oi5-h6-DQG"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="datePicker" destination="T7S-9z-jvS" id="kYq-ml-CFf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gB9-Zh-TZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1111" y="237"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v2O-J8-1j4">
+            <objects>
+                <navigationController id="jgQ-Je-N5x" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZvS-zn-e7t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0Ew-mv-5T1" kind="relationship" relationship="rootViewController" id="68c-NB-Eks"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45l-5o-83m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-401" y="323"/>
+        </scene>
+    </scenes>
+</document>
