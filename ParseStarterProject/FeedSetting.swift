@@ -28,4 +28,8 @@ class FeedSetting: PFObject, PFSubclassing {
         }
         return "No Date"
     }
+    
+    func daysString() -> String {
+        return "Todos los dias"
+    }
 }

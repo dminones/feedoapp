@@ -8,8 +8,10 @@
 
 import UIKit
 
-class FeedSettingViewController: UIViewController {
+class FeedSettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var datePicker : UIDatePicker?
+    @IBOutlet weak var tableView : UITableView?
+
     var feedSetting : FeedSetting = FeedSetting()
     
     override func viewDidLoad() {
@@ -26,6 +28,7 @@ class FeedSettingViewController: UIViewController {
         }
        
     }
+    
     
     func saveFeedSetting(sender: UIBarButtonItem) {
         var date = datePicker!.date
@@ -48,5 +51,25 @@ class FeedSettingViewController: UIViewController {
     
     func cancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell!
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        }
+        
+        if (indexPath.row == 0) {
+            cell?.textLabel?.text = feedSetting.weight?.stringValue
+        }else {
+            cell?.textLabel?.text = feedSetting.daysString()
+        }
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
     }
 }
