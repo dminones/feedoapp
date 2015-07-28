@@ -19,6 +19,7 @@
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		81BA81811A49E10C00E65899 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81801A49E10C00E65899 /* ParseUI.framework */; };
+		A35BB8541B6815C3001CD650 /* DayWeeksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35BB8531B6815C3001CD650 /* DayWeeksTableViewController.swift */; };
 		A35C08D11B4234E5008CA171 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C08D01B4234E5008CA171 /* LoginViewController.swift */; };
 		A35C08D31B423715008CA171 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35C08D21B423715008CA171 /* Social.framework */; };
 		A35C08D51B42371C008CA171 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35C08D41B42371C008CA171 /* Accounts.framework */; };
@@ -52,6 +53,7 @@
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		81BA81821A49E27F00E65899 /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		A35BB8531B6815C3001CD650 /* DayWeeksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayWeeksTableViewController.swift; path = Controllers/DayWeeksTableViewController.swift; sourceTree = "<group>"; };
 		A35C08D01B4234E5008CA171 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A35C08D21B423715008CA171 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		A35C08D41B42371C008CA171 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -179,6 +181,7 @@
 				A35C08D01B4234E5008CA171 /* LoginViewController.swift */,
 				A3A481321B62EA45000895EE /* FeedSettingViewController.swift */,
 				A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */,
+				A35BB8531B6815C3001CD650 /* DayWeeksTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				A35C08DB1B42B8BC008CA171 /* DeviceViewController.swift in Sources */,
 				A3A481291B62C019000895EE /* FeedSettingsTableViewController.swift in Sources */,
 				A3CBF9941B671F7B00D6BA26 /* LoadingOverlay.swift in Sources */,
+				A35BB8541B6815C3001CD650 /* DayWeeksTableViewController.swift in Sources */,
 				A3A4812E1B62CC2D000895EE /* ParseModels.swift in Sources */,
 				A35C08D11B4234E5008CA171 /* LoginViewController.swift in Sources */,
 				A3A4812C1B62C280000895EE /* Device.swift in Sources */,

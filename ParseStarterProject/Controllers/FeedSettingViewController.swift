@@ -81,7 +81,7 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
             controller.feedSetting = self.feedSetting
             self.navigationController?.pushViewController(controller, animated: true)
         }else {
-            var controller = self.storyboard?.instantiateViewControllerWithIdentifier("FeedWeightViewController") as! FeedWeightViewController
+            var controller = self.storyboard?.instantiateViewControllerWithIdentifier("DayWeeksTableViewController") as! DayWeeksTableViewController
             controller.feedSetting = self.feedSetting
             self.navigationController?.pushViewController(controller, animated: true)
         }
