@@ -13,10 +13,31 @@ class FeedWeightViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var pickerView : UIPickerView?
     var pickerData : NSMutableArray = []
     
-    override func viewDidLoad() {
+    func initPickerData() {
+        var j = 0
         for var i = 0; i<2000; i = i+50 {
             pickerData.addObject(i)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.initPickerData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        var j = 0
+        var selected = 0
+        
+        for value in self.pickerData {
+            if value.isEqual(feedSetting.weight) {
+                selected = j
+            }
+            j++
+        }
+        
+        pickerView?.selectRow(selected, inComponent: 0, animated: false)
+        super.viewWillAppear(animated)
     }
     
     //MARK: - Delegates and data sources

@@ -32,4 +32,11 @@ class FeedSetting: PFObject, PFSubclassing {
     func daysString() -> String {
         return "Todos los dias"
     }
+    
+    func getWeightString() -> String {
+        if var weight = self.weight {
+            return weight.stringValue.stringByAppendingString(" gr")
+        }
+        return "0 gr"
+    }
 }

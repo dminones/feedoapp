@@ -65,7 +65,7 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         if (indexPath.row == 0) {
-            cell?.textLabel?.text = feedSetting.weight?.stringValue.stringByAppendingString(" gr")
+            cell?.textLabel?.text = feedSetting.getWeightString()
         }else {
             cell?.textLabel?.text = feedSetting.daysString()
         }
