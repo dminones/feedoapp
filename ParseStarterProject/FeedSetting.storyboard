@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Add Feed Setting-->
+        <scene sceneID="dZe-hz-9Lt">
+            <objects>
+                <viewController storyboardIdentifier="FeedSettingViewController" title="Add Feed Setting" id="zyS-6b-Fkv" customClass="FeedSettingViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G1X-Wt-H3o"/>
+                        <viewControllerLayoutGuide type="bottom" id="feM-lQ-Ezy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j2M-5a-NBu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="yYt-La-PqW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="201"/>
+                                <date key="date" timeIntervalSinceReferenceDate="459467214.36307698">
+                                    <!--2015-07-24 21:46:54 +0000-->
+                                </date>
+                            </datePicker>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="6PA-W4-1g0">
+                                <rect key="frame" x="0.0" y="279" width="600" height="313"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dGc-7u-fzx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dGc-7u-fzx" id="JkT-ng-2gy">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rmg-Cd-Z3P">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rmg-Cd-Z3P" id="YFE-Vg-Znr">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZBa-j4-cQm">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZBa-j4-cQm" id="vk6-FE-OJ3">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zyS-6b-Fkv" id="0Iw-AM-Wob"/>
+                                    <outlet property="delegate" destination="zyS-6b-Fkv" id="MOl-Hn-O6A"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yYt-La-PqW" firstAttribute="leading" secondItem="j2M-5a-NBu" secondAttribute="leading" id="DVS-Id-BXj"/>
+                            <constraint firstItem="yYt-La-PqW" firstAttribute="top" secondItem="G1X-Wt-H3o" secondAttribute="bottom" id="HKl-5R-Cjs"/>
+                            <constraint firstAttribute="trailing" secondItem="yYt-La-PqW" secondAttribute="trailing" id="bCw-2B-6In"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="datePicker" destination="yYt-La-PqW" id="jkh-Op-JD2"/>
+                        <outlet property="tableView" destination="6PA-W4-1g0" id="teO-cP-ALM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0BQ-mw-Gpf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="227"/>
+        </scene>
+        <!--Feed Setting Weight-->
+        <scene sceneID="UIx-zr-nHr">
+            <objects>
+                <viewController storyboardIdentifier="FeedWeightViewController" title="Feed Setting Weight" id="p2k-Ne-S0R" customClass="FeedWeightViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r8k-Nh-sPj"/>
+                        <viewControllerLayoutGuide type="bottom" id="En6-gi-9dS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nvv-wY-JqG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmI-5Z-xKj">
+                                <rect key="frame" x="0.0" y="64" width="600" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="p2k-Ne-S0R" id="4ua-bx-Kwt"/>
+                                    <outlet property="delegate" destination="p2k-Ne-S0R" id="BJH-lU-lPu"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gmI-5Z-xKj" firstAttribute="top" secondItem="r8k-Nh-sPj" secondAttribute="bottom" id="HPw-j0-f3d"/>
+                            <constraint firstAttribute="trailing" secondItem="gmI-5Z-xKj" secondAttribute="trailing" id="bII-qW-MYm"/>
+                            <constraint firstItem="gmI-5Z-xKj" firstAttribute="leading" secondItem="nvv-wY-JqG" secondAttribute="leading" id="ohj-kf-qIP"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="pickerView" destination="gmI-5Z-xKj" id="S41-4Q-DjZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgP-tu-ayz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="-478"/>
+        </scene>
+    </scenes>
+</document>

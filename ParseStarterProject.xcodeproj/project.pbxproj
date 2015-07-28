@@ -31,6 +31,8 @@
 		A3A4812E1B62CC2D000895EE /* ParseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4812D1B62CC2D000895EE /* ParseModels.swift */; };
 		A3A481301B62D493000895EE /* FeedSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4812F1B62D493000895EE /* FeedSetting.swift */; };
 		A3A481331B62EA45000895EE /* FeedSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A481321B62EA45000895EE /* FeedSettingViewController.swift */; };
+		A3CBF9901B6708C100D6BA26 /* FeedWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */; };
+		A3CBF9921B6709F900D6BA26 /* FeedSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3CBF9911B6709F900D6BA26 /* FeedSetting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		A3A4812D1B62CC2D000895EE /* ParseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseModels.swift; path = Models/ParseModels.swift; sourceTree = "<group>"; };
 		A3A4812F1B62D493000895EE /* FeedSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSetting.swift; sourceTree = "<group>"; };
 		A3A481321B62EA45000895EE /* FeedSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedSettingViewController.swift; path = Controllers/FeedSettingViewController.swift; sourceTree = "<group>"; };
+		A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedWeightViewController.swift; sourceTree = "<group>"; };
+		A3CBF9911B6709F900D6BA26 /* FeedSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedSetting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				A3A481311B62EA22000895EE /* Controllers */,
 				A3A4812A1B62C263000895EE /* Models */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
+				A3CBF9911B6709F900D6BA26 /* FeedSetting.storyboard */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
 				81BA81511A49DA1800E65899 /* Images.xcassets */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
@@ -170,6 +175,7 @@
 				A35C08D61B42B52A008CA171 /* DevicesTableViewController.swift */,
 				A35C08D01B4234E5008CA171 /* LoginViewController.swift */,
 				A3A481321B62EA45000895EE /* FeedSettingViewController.swift */,
+				A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CBF9921B6709F900D6BA26 /* FeedSetting.storyboard in Resources */,
 				A39451311B66835700C2EF26 /* Swift.gitignore in Resources */,
 				81BA81501A49DA1800E65899 /* Main.storyboard in Resources */,
 				A39451331B66844300C2EF26 /* Xcode.gitignore in Resources */,
@@ -263,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CBF9901B6708C100D6BA26 /* FeedWeightViewController.swift in Sources */,
 				A35C08DB1B42B8BC008CA171 /* DeviceViewController.swift in Sources */,
 				A3A481291B62C019000895EE /* FeedSettingsTableViewController.swift in Sources */,
 				A3A4812E1B62CC2D000895EE /* ParseModels.swift in Sources */,

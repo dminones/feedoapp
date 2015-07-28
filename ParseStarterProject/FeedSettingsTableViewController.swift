@@ -47,7 +47,9 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
     }
     
     func goToFeedSetting(feedSetting: FeedSetting?) {
-        var modal = self.storyboard?.instantiateViewControllerWithIdentifier("FeedSettingViewController") as! FeedSettingViewController
+        let storyboard = UIStoryboard(name: "FeedSetting", bundle: nil)
+
+        var modal = storyboard.instantiateViewControllerWithIdentifier("FeedSettingViewController") as! FeedSettingViewController
         var navigationController = UINavigationController(rootViewController: modal)
         if feedSetting != nil {
             modal.feedSetting = feedSetting!

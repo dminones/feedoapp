@@ -29,6 +29,10 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
        
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView?.reloadData()
+    }
     
     func saveFeedSetting(sender: UIBarButtonItem) {
         var date = datePicker!.date
@@ -61,12 +65,26 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         if (indexPath.row == 0) {
-            cell?.textLabel?.text = feedSetting.weight?.stringValue
+            cell?.textLabel?.text = feedSetting.weight?.stringValue.stringByAppendingString(" gr")
         }else {
             cell?.textLabel?.text = feedSetting.daysString()
         }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        if (indexPath.row == 0) {
+            var controller = self.storyboard?.instantiateViewControllerWithIdentifier("FeedWeightViewController") as! FeedWeightViewController
+            controller.feedSetting = self.feedSetting
+            self.navigationController?.pushViewController(controller, animated: true)
+        }else {
+            var controller = self.storyboard?.instantiateViewControllerWithIdentifier("FeedWeightViewController") as! FeedWeightViewController
+            controller.feedSetting = self.feedSetting
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
