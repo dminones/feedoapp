@@ -33,6 +33,7 @@
 		A3A481331B62EA45000895EE /* FeedSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A481321B62EA45000895EE /* FeedSettingViewController.swift */; };
 		A3CBF9901B6708C100D6BA26 /* FeedWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */; };
 		A3CBF9921B6709F900D6BA26 /* FeedSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3CBF9911B6709F900D6BA26 /* FeedSetting.storyboard */; };
+		A3CBF9941B671F7B00D6BA26 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CBF9931B671F7B00D6BA26 /* LoadingOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		A3A481321B62EA45000895EE /* FeedSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedSettingViewController.swift; path = Controllers/FeedSettingViewController.swift; sourceTree = "<group>"; };
 		A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedWeightViewController.swift; sourceTree = "<group>"; };
 		A3CBF9911B6709F900D6BA26 /* FeedSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedSetting.storyboard; sourceTree = "<group>"; };
+		A3CBF9931B671F7B00D6BA26 /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
 				81BA81511A49DA1800E65899 /* Images.xcassets */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
+				A3CBF9931B671F7B00D6BA26 /* LoadingOverlay.swift */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				A3CBF9901B6708C100D6BA26 /* FeedWeightViewController.swift in Sources */,
 				A35C08DB1B42B8BC008CA171 /* DeviceViewController.swift in Sources */,
 				A3A481291B62C019000895EE /* FeedSettingsTableViewController.swift in Sources */,
+				A3CBF9941B671F7B00D6BA26 /* LoadingOverlay.swift in Sources */,
 				A3A4812E1B62CC2D000895EE /* ParseModels.swift in Sources */,
 				A35C08D11B4234E5008CA171 /* LoginViewController.swift in Sources */,
 				A3A4812C1B62C280000895EE /* Device.swift in Sources */,

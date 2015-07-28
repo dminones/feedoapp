@@ -41,15 +41,15 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         hourFormatter.dateFormat = "HH"
         
         feedSetting.time = date
-        
-        NSLog("Time: " + feedSetting.timeToShow())
-        
+        LoadingOverlay.shared.showOverlay(self.view)
+
         feedSetting.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             if success {
                 NSLog("Object created with id: (feedSetting.objectId)")
             } else {
                 NSLog("%@", error!)
             }
+            LoadingOverlay.shared.hideOverlayView()
         }
     }
     
