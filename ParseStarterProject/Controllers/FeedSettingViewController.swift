@@ -72,18 +72,18 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell!
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
         }
         
         if (indexPath.row == 0) {
-            cell?.textLabel?.text = feedSetting.getWeightString()
+            cell?.textLabel?.text = "weight"
+            cell?.detailTextLabel?.text = feedSetting.getWeightString()
         }else {
-            cell?.textLabel?.text = feedSetting.daysString()
+            cell?.textLabel?.text = "weekdays"
+            cell?.detailTextLabel?.text = feedSetting.daysString()
         }
         
         return cell

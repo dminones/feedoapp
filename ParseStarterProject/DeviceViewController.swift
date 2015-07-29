@@ -31,7 +31,7 @@ class DeviceViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         var destination = segue.destinationViewController as! FeedSettingsTableViewController
-        destination.device = device
+        destination.device = device!
     }
 
 
