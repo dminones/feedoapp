@@ -13,6 +13,7 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView : UITableView?
 
     var feedSetting : FeedSetting = FeedSetting()
+    var deleteButton : UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,18 +45,33 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         LoadingOverlay.shared.showOverlay(self.view)
 
         feedSetting.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
-            if success {
-                NSLog("Object created with id: (feedSetting.objectId)")
-            } else {
-                NSLog("%@", error!)
+            if !success {
+                self.showError(error)
             }
             LoadingOverlay.shared.hideOverlayView()
         }
     }
     
+    func showError(error:NSError?) {
+        NSLog("%@", error!)
+    }
+    
     func cancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func deleteFeedSetting(sender: UIBarButtonItem) {
+        LoadingOverlay.shared.showOverlay(self.view)
+        
+        feedSetting.deleteInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+            if !success {
+                self.showError(error)
+            }
+            LoadingOverlay.shared.hideOverlayView()
+            self.cancel(sender)
+        }
+    }
+    
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -89,5 +105,17 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if deleteButton == nil {
+            deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 40.0))
+            deleteButton!.backgroundColor = UIColor.whiteColor()
+            deleteButton!.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+            deleteButton!.setTitle("Delete", forState: UIControlState.Normal)
+            deleteButton!.addTarget(self, action: "deleteFeedSetting:", forControlEvents: UIControlEvents.TouchUpInside)
+        }
+        
+        return deleteButton
     }
 }

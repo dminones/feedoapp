@@ -56,4 +56,12 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
         }
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        if (self.tableView.editing) {
+            return UITableViewCellEditingStyle.Delete;
+        }
+        
+        return UITableViewCellEditingStyle.None;
+    }
 }

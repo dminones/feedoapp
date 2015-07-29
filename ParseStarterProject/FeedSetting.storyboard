@@ -26,8 +26,8 @@
                                     <!--2015-07-24 21:46:54 +0000-->
                                 </date>
                             </datePicker>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="6PA-W4-1g0">
-                                <rect key="frame" x="0.0" y="279" width="600" height="313"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="6PA-W4-1g0">
+                                <rect key="frame" x="0.0" y="279" width="600" height="321"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dGc-7u-fzx">
@@ -60,9 +60,9 @@
                         <constraints>
                             <constraint firstItem="yYt-La-PqW" firstAttribute="leading" secondItem="j2M-5a-NBu" secondAttribute="leading" id="30t-kv-wZU"/>
                             <constraint firstItem="yYt-La-PqW" firstAttribute="trailing" secondItem="6PA-W4-1g0" secondAttribute="trailing" id="5Mv-K8-zmU"/>
-                            <constraint firstItem="feM-lQ-Ezy" firstAttribute="top" secondItem="6PA-W4-1g0" secondAttribute="bottom" constant="8" symbolic="YES" id="Ghc-1Q-ocz"/>
+                            <constraint firstItem="feM-lQ-Ezy" firstAttribute="top" secondItem="6PA-W4-1g0" secondAttribute="bottom" id="Ghc-1Q-ocz"/>
                             <constraint firstItem="yYt-La-PqW" firstAttribute="leading" secondItem="6PA-W4-1g0" secondAttribute="leading" id="IoB-5D-hcB"/>
-                            <constraint firstItem="6PA-W4-1g0" firstAttribute="top" secondItem="yYt-La-PqW" secondAttribute="bottom" constant="35" id="KBu-jy-3s5"/>
+                            <constraint firstItem="6PA-W4-1g0" firstAttribute="top" secondItem="yYt-La-PqW" secondAttribute="bottom" constant="14" id="KBu-jy-3s5"/>
                             <constraint firstItem="yYt-La-PqW" firstAttribute="top" secondItem="G1X-Wt-H3o" secondAttribute="bottom" id="fKA-J4-nIX"/>
                             <constraint firstAttribute="trailing" secondItem="yYt-La-PqW" secondAttribute="trailing" id="jI3-8x-AvU"/>
                         </constraints>
