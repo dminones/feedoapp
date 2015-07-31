@@ -45,7 +45,10 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
         
         let feedSetting = object as! FeedSetting
         cell?.textLabel?.text = feedSetting.timeToShow() + " - " + feedSetting.getWeightString()
+        cell?.textLabel?.font = cell?.textLabel?.font.fontWithSize(30)
         cell?.detailTextLabel?.text = feedSetting.daysString()
+        cell?.detailTextLabel?.font = cell?.detailTextLabel?.font.fontWithSize(14)
+
         return cell
     }
     
