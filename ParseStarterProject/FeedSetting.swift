@@ -26,12 +26,12 @@ class FeedSetting: PFObject, PFSubclassing {
     }
     
     func timeToShow() -> String {
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         formatter.locale = NSLocale(localeIdentifier:"en_US")
         formatter.dateFormat = "HH:mm"
         
         
-        if var time=self.time {
+        if let time=self.time {
             return formatter.stringFromDate(time)
         }
         return "No Date"
@@ -41,7 +41,7 @@ class FeedSetting: PFObject, PFSubclassing {
         var result = ""
         var workingDays = [1,2,3,4,5]
         
-        if var currentWeekDays = days {
+        if let currentWeekDays = days {
             if currentWeekDays.count == 7 {
                 return "Todos los dias"
             }
@@ -55,7 +55,7 @@ class FeedSetting: PFObject, PFSubclassing {
     }
     
     func getWeightString() -> String {
-        if var weight = self.weight {
+        if let weight = self.weight {
             return weight.stringValue.stringByAppendingString(" gr")
         }
         return "0 gr"

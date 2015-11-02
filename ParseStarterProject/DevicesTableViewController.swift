@@ -22,8 +22,21 @@ class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControl
     }
     
     override func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var next = self.storyboard?.instantiateViewControllerWithIdentifier("DeviceViewController") as! DeviceViewController
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("DeviceViewController") as! DeviceViewController
         next.device = self.objectAtIndexPath(indexPath) as! Device?
         self.navigationController?.pushViewController(next, animated: true)
     }
+    
+    override func queryForTable() -> PFQuery{
+        let query = Device.query()
+        
+        // If no objects are loaded in memory, we look to the cache first to fill the table
+        // and then subsequently do a query against the network.
+        if self.objects!.count == 0 {
+            query!.cachePolicy = .CacheThenNetwork
+        }
+        
+        return query!
+    }
+    
 }

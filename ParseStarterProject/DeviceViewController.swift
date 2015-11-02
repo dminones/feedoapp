@@ -30,7 +30,7 @@ class DeviceViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        var destination = segue.destinationViewController as! FeedSettingsTableViewController
+        let destination = segue.destinationViewController as! FeedSettingsTableViewController
         destination.device = device!
     }
 

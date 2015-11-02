@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DayWeeksTableViewController: UITableViewController, UITableViewDelegate {
+class DayWeeksTableViewController: UITableViewController {
     var feedSetting : FeedSetting = FeedSetting()
     var lastSelectedIndexPath : NSIndexPath?
     
@@ -21,7 +21,7 @@ class DayWeeksTableViewController: UITableViewController, UITableViewDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell!
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         }

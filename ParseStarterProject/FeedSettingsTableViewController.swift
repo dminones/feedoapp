@@ -17,7 +17,7 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
         super.viewDidLoad()
         self.title = device.name
         
-        var barButton = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: Selector("addFeedSetting:"))
+        let barButton = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: Selector("addFeedSetting:"))
         self.navigationItem.rightBarButtonItem = barButton
         
     }
@@ -34,8 +34,16 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
     override func queryForTable() -> PFQuery{
         let query = FeedSetting.query()
         query!.whereKey("device", equalTo: self.device)
+        
+        // If no objects are loaded in memory, we look to the cache first to fill the table
+        // and then subsequently do a query against the network.
+        if self.objects!.count == 0 {
+            query!.cachePolicy = .CacheElseNetwork
+        }
+        
         return query!
     }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! PFTableViewCell!
@@ -49,6 +57,11 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
         cell?.detailTextLabel?.text = feedSetting.daysString()
         cell?.detailTextLabel?.font = cell?.detailTextLabel?.font.fontWithSize(14)
 
+        let separator = CALayer()
+        separator.backgroundColor = UIColor.lightGrayColor().CGColor
+        separator.frame = CGRectMake(15, 80, self.view.frame.size.width-15, 1);
+        cell?.layer.addSublayer(separator)
+        
         return cell
     }
     
@@ -59,15 +72,15 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
     func goToFeedSetting(feedSetting: FeedSetting?) {
         let storyboard = UIStoryboard(name: "FeedSetting", bundle: nil)
 
-        var modal = storyboard.instantiateViewControllerWithIdentifier("FeedSettingViewController") as! FeedSettingViewController
-        var navigationController = UINavigationController(rootViewController: modal)
+        let modal = storyboard.instantiateViewControllerWithIdentifier("FeedSettingViewController") as! FeedSettingViewController
+        let navigationController = UINavigationController(rootViewController: modal)
         if feedSetting != nil {
             modal.feedSetting = feedSetting!
         } else {
             modal.feedSetting = FeedSetting()
         }
         
-        var relation = modal.feedSetting.relationForKey("device")
+        let relation = modal.feedSetting.relationForKey("device")
         relation.addObject(self.device)
         
         self.presentViewController(navigationController, animated: true, completion: nil)
@@ -80,4 +93,6 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
         
         return UITableViewCellEditingStyle.None;
     }
+    
+    
 }

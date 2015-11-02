@@ -18,13 +18,13 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var barButton = UIBarButtonItem(title: "Save", style: .Done, target: self, action: Selector("saveFeedSetting:"))
+        let barButton = UIBarButtonItem(title: "Save", style: .Done, target: self, action: Selector("saveFeedSetting:"))
         self.navigationItem.rightBarButtonItem = barButton
         
-        var cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: Selector("cancel:"))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: Selector("cancel:"))
         self.navigationItem.leftBarButtonItem = cancelButton
         
-        if var date = feedSetting.time {
+        if let date = feedSetting.time {
             datePicker?.date = date
         }
        
@@ -36,8 +36,8 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func saveFeedSetting(sender: UIBarButtonItem) {
-        var date = datePicker!.date
-        var hourFormatter = NSDateFormatter()
+        let date = datePicker!.date
+        let hourFormatter = NSDateFormatter()
         hourFormatter.locale = NSLocale(localeIdentifier:"en_US")
         hourFormatter.dateFormat = "HH"
         
@@ -73,7 +73,7 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell!
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
         }
@@ -93,11 +93,11 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         
         
         if (indexPath.row == 0) {
-            var controller = self.storyboard?.instantiateViewControllerWithIdentifier("FeedWeightViewController") as! FeedWeightViewController
+            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("FeedWeightViewController") as! FeedWeightViewController
             controller.feedSetting = self.feedSetting
             self.navigationController?.pushViewController(controller, animated: true)
         }else {
-            var controller = self.storyboard?.instantiateViewControllerWithIdentifier("DayWeeksTableViewController") as! DayWeeksTableViewController
+            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("DayWeeksTableViewController") as! DayWeeksTableViewController
             controller.feedSetting = self.feedSetting
             self.navigationController?.pushViewController(controller, animated: true)
         }
