@@ -58,17 +58,16 @@ class DeviceViewController: UITableViewController {
         }
         
         if indexPath.section == 1 {
-            cell?.textLabel?.text = "configuration"
+            cell?.textLabel?.text = "Configuration"
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             return cell
         }
         
         let key = device?.configData[indexPath.row]
+        let label = device?.configLabels[indexPath.row]
         if key != nil {
-            cell?.textLabel?.text = key
-            if let value = device!.valueForKey(key!) {
-                cell?.detailTextLabel?.text = value.stringValue
-            }
+            cell?.textLabel?.text = (label != nil) ? label : key
+            cell?.detailTextLabel?.text = device?.getPrintableValue(key!)
         }
       
         return cell
