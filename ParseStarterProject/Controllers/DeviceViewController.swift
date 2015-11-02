@@ -12,7 +12,7 @@ import ParseUI
 
 class DeviceViewController: UITableViewController {
     var device: Device?
-    var configButton : UIButton?
+    var deleteButton : UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,25 +22,53 @@ class DeviceViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-
-    
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         let destination = segue.destinationViewController as! FeedSettingsTableViewController
         destination.device = device!
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section==0 {
+            return 1
+        }
+        
+        if section == 1 {
+            return 1
+        }
+        
+        // Delete button on footer 0 rows
+        return 0
     }
     
     override func tableView( tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : 44;
+        return section != 2 ? 0 : 44;
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+        }
+        
+        if indexPath.section == 1 {
+            cell?.textLabel?.text = "configuration"
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            return cell
+        }
+        
+        if (indexPath.row == 0) {
+            cell?.textLabel?.text = "status"
+            cell?.detailTextLabel?.text = device!.getFoodStatus().stringValue
+        }
+        
+        return cell
     }
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -48,19 +76,46 @@ class DeviceViewController: UITableViewController {
             return nil;
         }
         
-        if configButton == nil {
-            configButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 44.0))
-            configButton!.backgroundColor = UIColor.whiteColor()
-            configButton!.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-            configButton!.setTitle("Configurar", forState: UIControlState.Normal)
-            configButton!.addTarget(self, action: "goToFeedSettingController:", forControlEvents: UIControlEvents.TouchUpInside)
+        if deleteButton == nil {
+            deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 44.0))
+            deleteButton!.backgroundColor = UIColor.whiteColor()
+            deleteButton!.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+            deleteButton!.setTitle("Delete", forState: UIControlState.Normal)
+            deleteButton!.addTarget(self, action: "deleteDevice:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         
-        return configButton
+        return deleteButton
     }
     
+    override func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 {
+            self.goToFeedSettingController()
+            return
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
     
-    func goToFeedSettingController(sender: UIBarButtonItem) {
+    func showError(error:NSError?) {
+        NSLog("%@", error!)
+    }
+    
+    func cancel(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func deleteDevice(sender: UIBarButtonItem) {
+        LoadingOverlay.shared.showOverlay(self.view)
+        
+        self.device!.deleteInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+            if !success {
+                self.showError(error)
+            }
+            LoadingOverlay.shared.hideOverlayView()
+            self.cancel(sender)
+        }
+    }
+    
+    func goToFeedSettingController() {
         performSegueWithIdentifier("DeviceScreenToDeviceConfig", sender: nil)
     }
     

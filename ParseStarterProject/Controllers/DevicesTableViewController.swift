@@ -11,7 +11,12 @@ import Parse
 import ParseUI
 
 class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControllerDelegate {
-       
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadObjects()
+    }
+    
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         NSLog("Login")
         logInController.dismissViewControllerAnimated(true, completion: nil)
