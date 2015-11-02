@@ -10,5 +10,4 @@ import UIKit
 import ParseUI
 
 class LoginViewController: PFLogInViewController {
-        
 }
