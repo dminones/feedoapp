@@ -104,12 +104,27 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section==0){
+            return 2
+        }
+        return 0
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
     
+    func tableView( tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 0 ? 0 : 44;
+    }
+
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if (section==0){
+            return nil;
+        }
+        
         if deleteButton == nil {
-            deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 40.0))
+            deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 44.0))
             deleteButton!.backgroundColor = UIColor.whiteColor()
             deleteButton!.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
             deleteButton!.setTitle("Delete", forState: UIControlState.Normal)

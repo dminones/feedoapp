@@ -9,7 +9,7 @@
         <!--Device View Controller-->
         <scene sceneID="Lwb-OR-3Gh">
             <objects>
-                <viewController storyboardIdentifier="DeviceViewController" id="tkv-LK-f6D" customClass="DeviceViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeviceViewController" id="tkv-LK-f6D" customClass="DeviceViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Kd-G7-SYi"/>
                         <viewControllerLayoutGuide type="bottom" id="lMG-c2-7Xz"/>
@@ -45,13 +45,13 @@
         <!--Feed Settings Table View Controller-->
         <scene sceneID="pHa-Qo-kqe">
             <objects>
-                <tableViewController id="Icv-wj-maw" customClass="FeedSettingsTableViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Icv-wj-maw" customClass="FeedSettingsTableViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="NGU-m3-5Yy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6cZ-TE-gJu">
@@ -82,7 +82,7 @@
         <!--Devices-->
         <scene sceneID="vEC-TM-xRc">
             <objects>
-                <tableViewController title="Devices" id="0Ew-mv-5T1" customClass="DevicesTableViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Devices" id="0Ew-mv-5T1" customClass="DevicesTableViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="9cf-vk-x5t">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

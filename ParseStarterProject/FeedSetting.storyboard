@@ -8,7 +8,7 @@
         <!--Add Feed Setting-->
         <scene sceneID="dZe-hz-9Lt">
             <objects>
-                <viewController storyboardIdentifier="FeedSettingViewController" title="Add Feed Setting" id="zyS-6b-Fkv" customClass="FeedSettingViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedSettingViewController" title="Add Feed Setting" id="zyS-6b-Fkv" customClass="FeedSettingViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G1X-Wt-H3o"/>
                         <viewControllerLayoutGuide type="bottom" id="feM-lQ-Ezy"/>
@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="yYt-La-PqW">
-                                <rect key="frame" x="0.0" y="64" width="600" height="201"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="yYt-La-PqW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="180"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="Ebl-Dj-eCG"/>
@@ -27,8 +27,8 @@
                                     <!--2015-07-24 21:46:54 +0000-->
                                 </date>
                             </datePicker>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="6PA-W4-1g0">
-                                <rect key="frame" x="0.0" y="279" width="600" height="321"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="6PA-W4-1g0">
+                                <rect key="frame" x="0.0" y="258" width="600" height="342"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -95,7 +95,7 @@
         <!--Feed Setting Weight-->
         <scene sceneID="UIx-zr-nHr">
             <objects>
-                <viewController storyboardIdentifier="FeedWeightViewController" title="Feed Setting Weight" id="p2k-Ne-S0R" customClass="FeedWeightViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedWeightViewController" title="Feed Setting Weight" id="p2k-Ne-S0R" customClass="FeedWeightViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r8k-Nh-sPj"/>
                         <viewControllerLayoutGuide type="bottom" id="En6-gi-9dS"/>
@@ -133,7 +133,7 @@
         <!--Day Weeks Table View Controller-->
         <scene sceneID="eTD-P7-KyZ">
             <objects>
-                <tableViewController storyboardIdentifier="DayWeeksTableViewController" id="YWJ-LS-buU" customClass="DayWeeksTableViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DayWeeksTableViewController" id="YWJ-LS-buU" customClass="DayWeeksTableViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="16d-y2-bKw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
