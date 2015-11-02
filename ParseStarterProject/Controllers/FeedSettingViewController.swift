@@ -8,9 +8,8 @@
 
 import UIKit
 
-class FeedSettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var datePicker : UIDatePicker?
-    @IBOutlet weak var tableView : UITableView?
+class FeedSettingViewController: UITableViewController {
+    var datePicker : UIDatePicker = UIDatePicker()
 
     var feedSetting : FeedSetting = FeedSetting()
     var deleteButton : UIButton?
@@ -24,8 +23,11 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: Selector("cancel:"))
         self.navigationItem.leftBarButtonItem = cancelButton
         
+        
+        datePicker.datePickerMode = UIDatePickerMode.Time
+        datePicker.backgroundColor = UIColor.whiteColor();
         if let date = feedSetting.time {
-            datePicker?.date = date
+            datePicker.date = date
         }
        
     }
@@ -36,7 +38,7 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func saveFeedSetting(sender: UIBarButtonItem) {
-        let date = datePicker!.date
+        let date = datePicker.date
         let hourFormatter = NSDateFormatter()
         hourFormatter.locale = NSLocale(localeIdentifier:"en_US")
         hourFormatter.dateFormat = "HH"
@@ -72,7 +74,7 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
@@ -89,36 +91,49 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if (indexPath.row == 0) {
-            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("FeedWeightViewController") as! FeedWeightViewController
-            controller.feedSetting = self.feedSetting
-            self.navigationController?.pushViewController(controller, animated: true)
-        }else {
-            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("DayWeeksTableViewController") as! DayWeeksTableViewController
-            controller.feedSetting = self.feedSetting
-            self.navigationController?.pushViewController(controller, animated: true)
+        let identifier = (indexPath.row == 0) ? "FeedSettingToFeedWeight" : "FeedSettingToFeedDays"
+        self.performSegueWithIdentifier(identifier, sender: nil)
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "FeedSettingToFeedWeight") {
+            let destination = segue.destinationViewController as! FeedWeightViewController
+            destination.feedSetting = self.feedSetting
+        } else if (segue.identifier == "FeedSettingToFeedDays") {
+            let destination = segue.destinationViewController as! DayWeeksTableViewController
+            destination.feedSetting = self.feedSetting
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (section==0){
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section==1){
             return 2
         }
         return 0
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
     }
     
-    func tableView( tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : 44;
+    override func tableView( tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 2 ? 44 : 0;
+    }
+    
+    
+    override func tableView( tableView: UITableView,viewForHeaderInSection section: Int) -> UIView? {
+        return section == 0 ? datePicker : nil;
+    }
+    
+    override func tableView( tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? self.datePicker.frame.height : 0;
     }
 
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if (section==0){
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if (section != 2){
             return nil;
         }
         
