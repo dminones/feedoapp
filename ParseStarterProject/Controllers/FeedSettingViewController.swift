@@ -47,15 +47,24 @@ class FeedSettingViewController: UITableViewController {
         LoadingOverlay.shared.showOverlay(self.view)
 
         feedSetting.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
-            if !success {
-                self.showError(error)
-            }
             LoadingOverlay.shared.hideOverlayView()
+            if !success {
+                self.showError(error,title: "Cannot Save", message: "Please try again later")
+            }
         }
     }
     
-    func showError(error:NSError?) {
-        NSLog("%@", error!)
+    func showError(error:NSError?, title:String, message:String) {
+        NSLog("%@",error!)
+        
+        let alert = UIAlertController(title: title, message:message, preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+        }
+        
+        alert.addAction(cancelAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func cancel(sender: UIBarButtonItem) {
@@ -66,11 +75,13 @@ class FeedSettingViewController: UITableViewController {
         LoadingOverlay.shared.showOverlay(self.view)
         
         feedSetting.deleteInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
-            if !success {
-                self.showError(error)
-            }
             LoadingOverlay.shared.hideOverlayView()
-            self.cancel(sender)
+
+            if !success {
+                self.showError(error,title: "Failed Deleting", message: "Please try again later")
+            } else {
+                self.cancel(sender)
+            }
         }
     }
     
