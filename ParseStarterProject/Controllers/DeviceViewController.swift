@@ -35,7 +35,7 @@ class DeviceViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section==0 {
-            return 1
+            return (device?.configData.count)!
         }
         
         if section == 1 {
@@ -63,11 +63,14 @@ class DeviceViewController: UITableViewController {
             return cell
         }
         
-        if (indexPath.row == 0) {
-            cell?.textLabel?.text = "status"
-            cell?.detailTextLabel?.text = device!.getFoodStatus().stringValue
+        let key = device?.configData[indexPath.row]
+        if key != nil {
+            cell?.textLabel?.text = key
+            if let value = device!.valueForKey(key!) {
+                cell?.detailTextLabel?.text = value.stringValue
+            }
         }
-        
+      
         return cell
     }
     
