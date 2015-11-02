@@ -53,7 +53,7 @@
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		81BA81821A49E27F00E65899 /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
-		A35BB8531B6815C3001CD650 /* DayWeeksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayWeeksTableViewController.swift; path = Controllers/DayWeeksTableViewController.swift; sourceTree = "<group>"; };
+		A35BB8531B6815C3001CD650 /* DayWeeksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWeeksTableViewController.swift; sourceTree = "<group>"; };
 		A35C08D01B4234E5008CA171 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A35C08D21B423715008CA171 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		A35C08D41B42371C008CA171 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -64,8 +64,8 @@
 		A3A481281B62C019000895EE /* FeedSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSettingsTableViewController.swift; sourceTree = "<group>"; };
 		A3A4812B1B62C280000895EE /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Models/Device.swift; sourceTree = "<group>"; };
 		A3A4812D1B62CC2D000895EE /* ParseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseModels.swift; path = Models/ParseModels.swift; sourceTree = "<group>"; };
-		A3A4812F1B62D493000895EE /* FeedSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSetting.swift; sourceTree = "<group>"; };
-		A3A481321B62EA45000895EE /* FeedSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedSettingViewController.swift; path = Controllers/FeedSettingViewController.swift; sourceTree = "<group>"; };
+		A3A4812F1B62D493000895EE /* FeedSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedSetting.swift; path = Models/FeedSetting.swift; sourceTree = "<group>"; };
+		A3A481321B62EA45000895EE /* FeedSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSettingViewController.swift; sourceTree = "<group>"; };
 		A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedWeightViewController.swift; sourceTree = "<group>"; };
 		A3CBF9911B6709F900D6BA26 /* FeedSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedSetting.storyboard; sourceTree = "<group>"; };
 		A3CBF9931B671F7B00D6BA26 /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 				A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */,
 				A35BB8531B6815C3001CD650 /* DayWeeksTableViewController.swift */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
