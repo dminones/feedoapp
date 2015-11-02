@@ -3,44 +3,41 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Device View Controller-->
-        <scene sceneID="Lwb-OR-3Gh">
+        <scene sceneID="rhN-Nr-6ha">
             <objects>
-                <viewController storyboardIdentifier="DeviceViewController" id="tkv-LK-f6D" customClass="DeviceViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Kd-G7-SYi"/>
-                        <viewControllerLayoutGuide type="bottom" id="lMG-c2-7Xz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QG7-6H-fdM">
+                <tableViewController storyboardIdentifier="DeviceViewController" id="oe2-jn-HGZ" customClass="DeviceViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1oQ-on-fur">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlE-EQ-FQj">
-                                <rect key="frame" x="16" y="341" width="568" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Configurar">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Icv-wj-maw" kind="show" id="nV3-cV-Xsp"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="GlE-EQ-FQj" firstAttribute="top" secondItem="5Kd-G7-SYi" secondAttribute="bottom" constant="86" id="Dc8-79-Cc4"/>
-                            <constraint firstItem="GlE-EQ-FQj" firstAttribute="leading" secondItem="QG7-6H-fdM" secondAttribute="leadingMargin" id="cfw-2A-650"/>
-                            <constraint firstItem="GlE-EQ-FQj" firstAttribute="trailing" secondItem="QG7-6H-fdM" secondAttribute="trailingMargin" id="etP-YB-5NU"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9fb-ZE-UUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="j45-o2-nhf">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j45-o2-nhf" id="Eai-iN-bjn">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oe2-jn-HGZ" id="kw9-4K-AU8"/>
+                            <outlet property="delegate" destination="oe2-jn-HGZ" id="cl0-Aj-h9I"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="Icv-wj-maw" kind="show" identifier="DeviceScreenToDeviceConfig" id="x3q-G3-dpV"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xav-tH-Uv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823" y="-468"/>
+            <point key="canvasLocation" x="783" y="-468"/>
         </scene>
         <!--Feed Settings Table View Controller-->
         <scene sceneID="pHa-Qo-kqe">

@@ -91,7 +91,6 @@ class FeedSettingViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
         if (indexPath.row == 0) {
             let controller = self.storyboard?.instantiateViewControllerWithIdentifier("FeedWeightViewController") as! FeedWeightViewController
             controller.feedSetting = self.feedSetting
