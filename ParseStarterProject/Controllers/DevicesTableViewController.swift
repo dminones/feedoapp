@@ -60,7 +60,9 @@ class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControl
         if (QRCodeReader.isAvailable()) {
             // Or by using the closure pattern
             reader.completionBlock = { (result: String?) in
-                NSLog(result!)
+                if (result != nil) {
+                    NSLog(result!)
+                }
                 self.reader.dismissViewControllerAnimated(true, completion: nil)
             }
             
