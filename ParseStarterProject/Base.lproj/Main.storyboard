@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Device View Controller-->
@@ -110,10 +111,87 @@
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="fB1-2O-XR9" kind="presentation" identifier="DeviceListToAddDevice" id="q8Z-P1-YUf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cou-kK-qX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="323"/>
+            <point key="canvasLocation" x="21" y="-457"/>
+        </scene>
+        <!--Add Device View Controller-->
+        <scene sceneID="iWS-ff-hgm">
+            <objects>
+                <viewController id="fB1-2O-XR9" customClass="AddDeviceViewController" customModule="Feedo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qag-fO-1Fe"/>
+                        <viewControllerLayoutGuide type="bottom" id="NA7-14-8y0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gBO-9V-jLA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-os-wDH">
+                                <rect key="frame" x="20" y="20" width="560" height="206"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="206" id="ce9-Rz-dAq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para agregar un dispositivo podés usar el código del manual o escanear direcmtanemte el código QR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnK-hK-dcn">
+                                <rect key="frame" x="20" y="236" width="560" height="41"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ah-54-lQf">
+                                <rect key="frame" x="20" y="298" width="560" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Escanear código QR"/>
+                                <connections>
+                                    <action selector="goToAddDevice:" destination="fB1-2O-XR9" eventType="touchUpInside" id="zye-bd-Lyy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dES-Kv-07K">
+                                <rect key="frame" x="20" y="451" width="560" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Ingresar Código"/>
+                                <connections>
+                                    <action selector="addDeviceWithCode:" destination="fB1-2O-XR9" eventType="touchUpInside" id="tWD-2F-Dh0"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rOW-12-h86">
+                                <rect key="frame" x="20" y="413" width="560" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="trailing" secondItem="gBO-9V-jLA" secondAttribute="trailingMargin" id="6Ga-nt-PUZ"/>
+                            <constraint firstItem="dES-Kv-07K" firstAttribute="top" secondItem="rOW-12-h86" secondAttribute="bottom" constant="8" symbolic="YES" id="Cfa-I0-Ciz"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="leading" secondItem="6ah-54-lQf" secondAttribute="leading" id="UKd-k3-8mV"/>
+                            <constraint firstItem="UnK-hK-dcn" firstAttribute="top" secondItem="bSe-os-wDH" secondAttribute="bottom" constant="10" id="VKo-1l-PMJ"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="trailing" secondItem="UnK-hK-dcn" secondAttribute="trailing" id="Vl0-e3-2GA"/>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="trailing" secondItem="UnK-hK-dcn" secondAttribute="trailing" id="Y4V-BE-gWW"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="leading" secondItem="dES-Kv-07K" secondAttribute="leading" id="Z5d-5D-dVw"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="trailing" secondItem="6ah-54-lQf" secondAttribute="trailing" id="cvL-Pc-PAt"/>
+                            <constraint firstItem="dES-Kv-07K" firstAttribute="trailing" secondItem="rOW-12-h86" secondAttribute="trailing" id="flW-vc-V4j"/>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="leading" secondItem="gBO-9V-jLA" secondAttribute="leadingMargin" id="g9I-fS-5QJ"/>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="leading" secondItem="UnK-hK-dcn" secondAttribute="leading" id="h2v-km-oov"/>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="top" secondItem="Qag-fO-1Fe" secondAttribute="bottom" id="jXN-93-Ta4"/>
+                            <constraint firstItem="6ah-54-lQf" firstAttribute="leading" secondItem="UnK-hK-dcn" secondAttribute="leading" id="kAV-VE-ALo"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="top" secondItem="6ah-54-lQf" secondAttribute="bottom" constant="85" id="mVz-1A-7HU"/>
+                            <constraint firstItem="NA7-14-8y0" firstAttribute="top" secondItem="dES-Kv-07K" secondAttribute="bottom" constant="119" id="ypM-AF-Jk2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBm-DK-cBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21" y="327"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v2O-J8-1j4">
@@ -130,7 +208,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45l-5o-83m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-401" y="323"/>
+            <point key="canvasLocation" x="-799" y="-457"/>
         </scene>
     </scenes>
 </document>

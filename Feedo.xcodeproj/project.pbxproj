@@ -26,6 +26,7 @@
 		A35C08D51B42371C008CA171 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35C08D41B42371C008CA171 /* Accounts.framework */; };
 		A35C08D71B42B52A008CA171 /* DevicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C08D61B42B52A008CA171 /* DevicesTableViewController.swift */; };
 		A35C08DB1B42B8BC008CA171 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C08DA1B42B8BC008CA171 /* DeviceViewController.swift */; };
+		A3893DA21BEE6FE900734F6E /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3893DA11BEE6FE900734F6E /* AddDeviceViewController.swift */; };
 		A39451311B66835700C2EF26 /* Swift.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A39451301B66835700C2EF26 /* Swift.gitignore */; };
 		A39451331B66844300C2EF26 /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A39451321B66844300C2EF26 /* Xcode.gitignore */; };
 		A3A481291B62C019000895EE /* FeedSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A481281B62C019000895EE /* FeedSettingsTableViewController.swift */; };
@@ -63,6 +64,7 @@
 		A35C08D41B42371C008CA171 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		A35C08D61B42B52A008CA171 /* DevicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesTableViewController.swift; sourceTree = "<group>"; };
 		A35C08DA1B42B8BC008CA171 /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
+		A3893DA11BEE6FE900734F6E /* AddDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
 		A39451301B66835700C2EF26 /* Swift.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swift.gitignore; sourceTree = "<group>"; };
 		A39451321B66844300C2EF26 /* Xcode.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
 		A3A481281B62C019000895EE /* FeedSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				A3A481321B62EA45000895EE /* FeedSettingViewController.swift */,
 				A3CBF98F1B6708C100D6BA26 /* FeedWeightViewController.swift */,
 				A35BB8531B6815C3001CD650 /* DayWeeksTableViewController.swift */,
+				A3893DA11BEE6FE900734F6E /* AddDeviceViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				A3A481291B62C019000895EE /* FeedSettingsTableViewController.swift in Sources */,
 				A3CBF9941B671F7B00D6BA26 /* LoadingOverlay.swift in Sources */,
 				A35BB8541B6815C3001CD650 /* DayWeeksTableViewController.swift in Sources */,
+				A3893DA21BEE6FE900734F6E /* AddDeviceViewController.swift in Sources */,
 				A3A4812E1B62CC2D000895EE /* ParseModels.swift in Sources */,
 				A35C08D11B4234E5008CA171 /* LoginViewController.swift in Sources */,
 				A3A4812C1B62C280000895EE /* Device.swift in Sources */,

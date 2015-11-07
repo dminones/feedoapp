@@ -9,12 +9,10 @@
 import UIKit
 import Parse
 import ParseUI
-import QRCodeReader
-import AVFoundation
+
 
 class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControllerDelegate{
     
-    lazy var reader = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,22 +54,6 @@ class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControl
     
     
     func addDevice(sender: UIBarButtonItem) {
-        
-        if (QRCodeReader.isAvailable()) {
-            // Or by using the closure pattern
-            reader.completionBlock = { (result: String?) in
-                if (result != nil) {
-                    NSLog(result!)
-                }
-                self.reader.dismissViewControllerAnimated(true, completion: nil)
-            }
-            
-            // Presents the reader as modal form sheet
-            reader.modalPresentationStyle = .FormSheet
-            presentViewController(reader, animated: true, completion: nil)
-        } else {
-            NSLog("Pongo un texto");
-        }
-        
+        self.performSegueWithIdentifier("DeviceListToAddDevice", sender: nil)
     }
 }
