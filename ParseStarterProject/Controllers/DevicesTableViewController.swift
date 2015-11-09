@@ -16,7 +16,7 @@ class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let barButton = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: Selector("addDevice:"))
+        let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addDevice:"))
         self.navigationItem.rightBarButtonItem = barButton
     }
     

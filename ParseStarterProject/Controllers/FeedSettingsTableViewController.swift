@@ -17,7 +17,7 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
         super.viewDidLoad()
         self.title = device.name
         
-        let barButton = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: Selector("addFeedSetting:"))
+        let barButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addFeedSetting:"))
         self.navigationItem.rightBarButtonItem = barButton
         
     }

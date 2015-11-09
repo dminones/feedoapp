@@ -17,10 +17,10 @@ class FeedSettingViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let barButton = UIBarButtonItem(title: "Save", style: .Done, target: self, action: Selector("saveFeedSetting:"))
+        let barButton = UIBarButtonItem(barButtonSystemItem: .Save,target:self, action:"saveFeedSetting:")
         self.navigationItem.rightBarButtonItem = barButton
         
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: Selector("cancel:"))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel:")
         self.navigationItem.leftBarButtonItem = cancelButton
         
         

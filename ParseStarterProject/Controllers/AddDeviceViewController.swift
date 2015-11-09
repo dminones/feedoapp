@@ -14,6 +14,19 @@ class AddDeviceViewController : UIViewController {
 
     lazy var reader = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let navbar = UINavigationBar(frame: CGRectMake(0, 20,
+            UIScreen.mainScreen().bounds.size.width,50));
+        self.view.addSubview(navbar)
+        
+        let navItem = UINavigationItem(title: "Add Device")
+        let navBarbutton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action:"cancel")
+        navItem.rightBarButtonItem = navBarbutton
+        
+        navbar.items = [navItem]
+    }
+    
     @IBAction func goToAddDevice(sender: UIButton) {
         if (QRCodeReader.isAvailable()) {
             // Or by using the closure pattern
@@ -34,5 +47,9 @@ class AddDeviceViewController : UIViewController {
     
     @IBAction func addDeviceWithCode(sender: UIButton) {
         
+    }
+    
+    func cancel() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
