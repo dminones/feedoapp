@@ -131,62 +131,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-os-wDH">
-                                <rect key="frame" x="20" y="20" width="560" height="206"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="image-smartfeeder_dog.png" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-os-wDH">
+                                <rect key="frame" x="20" y="20" width="560" height="200"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="206" id="ce9-Rz-dAq"/>
+                                    <constraint firstAttribute="height" constant="200" id="V5k-8y-ku4"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para agregar un dispositivo podés usar el código del manual o escanear direcmtanemte el código QR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnK-hK-dcn">
-                                <rect key="frame" x="20" y="236" width="560" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para agregar un dispositivo podés usar el código del manual o escanear direcmtanemte el código QR" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="UnK-hK-dcn">
+                                <rect key="frame" x="20" y="240" width="560" height="36"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="JLt-9v-Xfo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JLt-9v-Xfo"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ah-54-lQf">
-                                <rect key="frame" x="20" y="298" width="560" height="30"/>
+                                <rect key="frame" x="20" y="394" width="560" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0Fg-kS-aAb"/>
+                                </constraints>
                                 <state key="normal" title="Escanear código QR"/>
                                 <connections>
                                     <action selector="goToAddDevice:" destination="fB1-2O-XR9" eventType="touchUpInside" id="zye-bd-Lyy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dES-Kv-07K">
-                                <rect key="frame" x="20" y="451" width="560" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dES-Kv-07K">
+                                <rect key="frame" x="20" y="334" width="560" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="s2b-A8-Qbm"/>
+                                </constraints>
                                 <state key="normal" title="Ingresar Código"/>
                                 <connections>
                                     <action selector="addDeviceWithCode:" destination="fB1-2O-XR9" eventType="touchUpInside" id="tWD-2F-Dh0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rOW-12-h86">
-                                <rect key="frame" x="20" y="413" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Ejemplo: XFDSA" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rOW-12-h86">
+                                <rect key="frame" x="20" y="296" width="560" height="30"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="E2g-Nv-V0s"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bSe-os-wDH" firstAttribute="trailing" secondItem="gBO-9V-jLA" secondAttribute="trailingMargin" id="6Ga-nt-PUZ"/>
-                            <constraint firstItem="dES-Kv-07K" firstAttribute="top" secondItem="rOW-12-h86" secondAttribute="bottom" constant="8" symbolic="YES" id="Cfa-I0-Ciz"/>
-                            <constraint firstItem="rOW-12-h86" firstAttribute="leading" secondItem="6ah-54-lQf" secondAttribute="leading" id="UKd-k3-8mV"/>
-                            <constraint firstItem="UnK-hK-dcn" firstAttribute="top" secondItem="bSe-os-wDH" secondAttribute="bottom" constant="10" id="VKo-1l-PMJ"/>
-                            <constraint firstItem="rOW-12-h86" firstAttribute="trailing" secondItem="UnK-hK-dcn" secondAttribute="trailing" id="Vl0-e3-2GA"/>
-                            <constraint firstItem="bSe-os-wDH" firstAttribute="trailing" secondItem="UnK-hK-dcn" secondAttribute="trailing" id="Y4V-BE-gWW"/>
-                            <constraint firstItem="rOW-12-h86" firstAttribute="leading" secondItem="dES-Kv-07K" secondAttribute="leading" id="Z5d-5D-dVw"/>
-                            <constraint firstItem="rOW-12-h86" firstAttribute="trailing" secondItem="6ah-54-lQf" secondAttribute="trailing" id="cvL-Pc-PAt"/>
-                            <constraint firstItem="dES-Kv-07K" firstAttribute="trailing" secondItem="rOW-12-h86" secondAttribute="trailing" id="flW-vc-V4j"/>
-                            <constraint firstItem="bSe-os-wDH" firstAttribute="leading" secondItem="gBO-9V-jLA" secondAttribute="leadingMargin" id="g9I-fS-5QJ"/>
-                            <constraint firstItem="bSe-os-wDH" firstAttribute="leading" secondItem="UnK-hK-dcn" secondAttribute="leading" id="h2v-km-oov"/>
-                            <constraint firstItem="bSe-os-wDH" firstAttribute="top" secondItem="Qag-fO-1Fe" secondAttribute="bottom" id="jXN-93-Ta4"/>
-                            <constraint firstItem="6ah-54-lQf" firstAttribute="leading" secondItem="UnK-hK-dcn" secondAttribute="leading" id="kAV-VE-ALo"/>
-                            <constraint firstItem="rOW-12-h86" firstAttribute="top" secondItem="6ah-54-lQf" secondAttribute="bottom" constant="85" id="mVz-1A-7HU"/>
-                            <constraint firstItem="NA7-14-8y0" firstAttribute="top" secondItem="dES-Kv-07K" secondAttribute="bottom" constant="119" id="ypM-AF-Jk2"/>
+                            <constraint firstItem="UnK-hK-dcn" firstAttribute="trailing" secondItem="rOW-12-h86" secondAttribute="trailing" id="ADM-x2-4l9"/>
+                            <constraint firstItem="dES-Kv-07K" firstAttribute="top" secondItem="rOW-12-h86" secondAttribute="bottom" constant="8" symbolic="YES" id="AHI-nG-Xih"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="top" secondItem="UnK-hK-dcn" secondAttribute="bottom" constant="20" id="Ch0-G2-HHi"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="trailing" secondItem="gBO-9V-jLA" secondAttribute="trailingMargin" id="H8C-8p-Opy"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="leading" secondItem="gBO-9V-jLA" secondAttribute="leadingMargin" id="KCy-0M-bzc"/>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="leading" secondItem="gBO-9V-jLA" secondAttribute="leading" id="LeK-tk-1h7"/>
+                            <constraint firstItem="dES-Kv-07K" firstAttribute="trailing" secondItem="6ah-54-lQf" secondAttribute="trailing" id="NEn-Q6-wtx"/>
+                            <constraint firstItem="6ah-54-lQf" firstAttribute="top" secondItem="dES-Kv-07K" secondAttribute="bottom" constant="30" id="Ns8-VO-QOo"/>
+                            <constraint firstItem="rOW-12-h86" firstAttribute="leading" secondItem="UnK-hK-dcn" secondAttribute="leading" id="Owl-UY-pcX"/>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="top" secondItem="Qag-fO-1Fe" secondAttribute="bottom" id="QTI-YY-fex"/>
+                            <constraint firstItem="dES-Kv-07K" firstAttribute="trailing" secondItem="rOW-12-h86" secondAttribute="trailing" id="UGJ-7j-7gk"/>
+                            <constraint firstItem="dES-Kv-07K" firstAttribute="leading" secondItem="rOW-12-h86" secondAttribute="leading" id="VYp-U6-PZk"/>
+                            <constraint firstItem="dES-Kv-07K" firstAttribute="leading" secondItem="6ah-54-lQf" secondAttribute="leading" id="VtD-t1-aDv"/>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="leading" secondItem="UnK-hK-dcn" secondAttribute="leading" id="j4o-qb-cFD"/>
+                            <constraint firstItem="UnK-hK-dcn" firstAttribute="top" secondItem="bSe-os-wDH" secondAttribute="bottom" constant="20" id="kTa-zK-fd0"/>
+                            <constraint firstItem="bSe-os-wDH" firstAttribute="trailing" secondItem="UnK-hK-dcn" secondAttribute="trailing" id="w1Z-kz-6O3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LeK-tk-1h7"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBm-DK-cBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -211,4 +234,7 @@
             <point key="canvasLocation" x="-799" y="-457"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image-smartfeeder_dog.png" width="1260" height="998"/>
+    </resources>
 </document>
