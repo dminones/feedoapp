@@ -163,6 +163,7 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
                 hourFormatter.dateFormat = "HH"
                 
                 feedSetting.time = date
+                self.pickerViewFrame = datePicker.frame;
                 self.hidePickerView(datePicker)
 
             }
@@ -180,6 +181,7 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
             if (editingWeight) {
                 self.showPickerView(pickerView)
             } else {
+                self.pickerViewFrame = pickerView.frame;
                 self.hidePickerView(pickerView)
             }
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
@@ -187,7 +189,7 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     }
     
     func hidePickerView(picker: UIView) {
-        self.pickerViewFrame = picker.frame;
+        
         UIView.animateWithDuration(0.3) { () -> Void in
             var frame = picker.frame
             frame.size.height = 0
