@@ -39,7 +39,6 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     
     func initDatePicker() {
         datePicker.hidden = true
-        datePicker.addTarget(self, action:"valueDateChanged:", forControlEvents:.ValueChanged);
         datePicker.datePickerMode = UIDatePickerMode.Time
         datePicker.backgroundColor = UIColor.whiteColor();
         if let date = feedSetting.time {
@@ -146,7 +145,10 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
         if (indexPath.row == 4) {
             self.performSegueWithIdentifier("FeedSettingToFeedDays", sender: nil)
         }
+        
         if (indexPath.row == 0) {
+            self.hidePickerView(pickerView)
+            editingWeight = false
             //toogle
             editingTime = !editingTime
             
@@ -155,12 +157,21 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
             if (editingTime) {
                 self.showPickerView(datePicker)
             } else {
+                let date = datePicker.date
+                let hourFormatter = NSDateFormatter()
+                hourFormatter.locale = NSLocale(localeIdentifier:"en_US")
+                hourFormatter.dateFormat = "HH"
+                
+                feedSetting.time = date
                 self.hidePickerView(datePicker)
+
             }
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
         
         if (indexPath.row == 2) {
+            self.hidePickerView(datePicker)
+            editingTime = false
             //toogle
             editingWeight = !editingWeight
             
@@ -176,7 +187,8 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     }
     
     func hidePickerView(picker: UIView) {
-        UIView.animateWithDuration(0.2) { () -> Void in
+        self.pickerViewFrame = picker.frame;
+        UIView.animateWithDuration(0.3) { () -> Void in
             var frame = picker.frame
             frame.size.height = 0
             picker.frame = frame
@@ -184,7 +196,7 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     }
     
     func showPickerView(picker: UIView) {
-        UIView.animateWithDuration(0.2) { () -> Void in
+        UIView.animateWithDuration(0.3) { () -> Void in
             picker.frame = self.pickerViewFrame!
         }
     }
@@ -254,16 +266,4 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         feedSetting.weight = pickerData[row] as? NSNumber
     }
-    
-    
-    // The methods to close the keyboard when editing is finished
-    @IBAction func valueDateChanged(sender: AnyObject) {
-        let date = datePicker.date
-        let hourFormatter = NSDateFormatter()
-        hourFormatter.locale = NSLocale(localeIdentifier:"en_US")
-        hourFormatter.dateFormat = "HH"
-        
-        feedSetting.time = date
-    }
-    
 }
