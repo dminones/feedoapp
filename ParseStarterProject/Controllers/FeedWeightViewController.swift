@@ -14,7 +14,6 @@ class FeedWeightViewController: UIViewController, UIPickerViewDataSource, UIPick
     var pickerData : NSMutableArray = []
     
     func initPickerData() {
-        var j = 0
         for var i = 0; i<2000; i = i+50 {
             pickerData.addObject(i)
         }

@@ -8,9 +8,13 @@
 
 import UIKit
 
-class FeedSettingViewController: UITableViewController {
+class FeedSettingViewController: UITableViewController , UIPickerViewDataSource, UIPickerViewDelegate {
     var datePicker : UIDatePicker = UIDatePicker()
-
+    var pickerView : UIPickerView = UIPickerView()
+    var editingWeight : Bool = Bool()
+    var pickerViewFrame : CGRect?
+    var pickerData : NSMutableArray = []
+    
     var feedSetting : FeedSetting = FeedSetting()
     var deleteButton : UIButton?
     
@@ -22,19 +26,43 @@ class FeedSettingViewController: UITableViewController {
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel:")
         self.navigationItem.leftBarButtonItem = cancelButton
-        
-        
+
         datePicker.datePickerMode = UIDatePickerMode.Time
         datePicker.backgroundColor = UIColor.whiteColor();
         if let date = feedSetting.time {
             datePicker.date = date
         }
-       
+        
+        self.initPickerData()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView?.reloadData()
+    }
+    
+    func initPickerData() {
+        
+        for var i = 0; i<2000; i = i+50 {
+            pickerData.addObject(i)
+        }
+        
+        var j = 0
+        var selected = 0
+        
+        for value in self.pickerData {
+            if value.isEqual(feedSetting.getWeight()) {
+                selected = j
+            }
+            j++
+        }
+        
+        
+        pickerViewFrame = pickerView.frame
+        pickerView.hidden = true
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.selectRow(selected, inComponent: 0, animated: false)
     }
     
     func saveFeedSetting(sender: UIBarButtonItem) {
@@ -94,36 +122,69 @@ class FeedSettingViewController: UITableViewController {
         if (indexPath.row == 0) {
             cell?.textLabel?.text = "weight"
             cell?.detailTextLabel?.text = feedSetting.getWeightString()
-        }else {
-            cell?.textLabel?.text = "weekdays"
+            cell.accessoryType = .None
+        }else if (indexPath.row == 2) {
+            cell?.textLabel?.text = "repeat"
             cell?.detailTextLabel?.text = feedSetting.daysString()
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        } else {
+            cell.contentView.addSubview(self.pickerView)
         }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let identifier = (indexPath.row == 0) ? "FeedSettingToFeedWeight" : "FeedSettingToFeedDays"
-        self.performSegueWithIdentifier(identifier, sender: nil)
+        if (indexPath.row == 2) {
+            self.performSegueWithIdentifier("FeedSettingToFeedDays", sender: nil)
+        }
+        if (indexPath.row == 0) {
+            //toogle
+            editingWeight = !editingWeight
+            
+            //is just hidden the first time
+            pickerView.hidden = false
+            if (editingWeight) {
+                self.showPickerView()
+            } else {
+                self.hidePickerView()
+            }
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
+    
+    func hidePickerView() {
+        UIView.animateWithDuration(0.2) { () -> Void in
+            var frame = self.pickerView.frame
+            frame.size.height = 0
+            self.pickerView.frame = frame
+        }
+    }
+    
+    func showPickerView() {
+        UIView.animateWithDuration(0.2) { () -> Void in
+            self.pickerView.frame = self.pickerViewFrame!
+        }
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "FeedSettingToFeedWeight") {
-            let destination = segue.destinationViewController as! FeedWeightViewController
-            destination.feedSetting = self.feedSetting
-        } else if (segue.identifier == "FeedSettingToFeedDays") {
-            let destination = segue.destinationViewController as! DayWeeksTableViewController
-            destination.feedSetting = self.feedSetting
-        }
+        let destination = segue.destinationViewController as! DayWeeksTableViewController
+        destination.feedSetting = self.feedSetting
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section==1){
-            return 2
+            return 3
         }
         return 0
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(indexPath.row == 1) {
+            return editingWeight ? (self.pickerViewFrame?.height)! : 0
+        }
+        return self.tableView.rowHeight;
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -157,5 +218,24 @@ class FeedSettingViewController: UITableViewController {
         }
         
         return deleteButton
+    }
+    
+    
+    //MARK: - Delegates and data sources
+    //MARK: Data Sources
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //MARK: Delegates
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return (pickerData[row] as? NSNumber)?.stringValue.stringByAppendingString(" gr")
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        feedSetting.weight = pickerData[row] as? NSNumber
     }
 }

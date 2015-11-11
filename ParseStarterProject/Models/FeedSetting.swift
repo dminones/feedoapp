@@ -20,6 +20,7 @@ class FeedSetting: PFObject, PFSubclassing {
     @NSManaged  var weight : NSNumber?
     @NSManaged  var days : NSMutableArray?
     static let weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    static let shortWeekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     
     static func parseClassName() -> String {
         return "FeedSetting"
@@ -37,28 +38,39 @@ class FeedSetting: PFObject, PFSubclassing {
         return "No Date"
     }
     
+    func getDays() -> NSMutableArray {
+        
+        if let currentDays = days {
+            return currentDays
+        }
+        
+        return [0,1,2,3,4,5,6]
+    }
+    
     func daysString() -> String {
         var result = ""
-        var workingDays = [1,2,3,4,5]
+        let currentWeekDays = self.getDays()
         
-        if let currentWeekDays = days {
-            if currentWeekDays.count == 7 {
-                return "Todos los dias"
-            }
-            
-            for day in currentWeekDays{
-                result += FeedSetting.weekDays[day.integerValue] + " "
-            }
+        if currentWeekDays.count == 7 {
+            return "Todos los dias"
+        }
+        
+        for day in currentWeekDays{
+            result += FeedSetting.weekDays[day.integerValue] + " "
         }
         
         return result=="" ? "Nunca" : result
     }
     
-    func getWeightString() -> String {
+    func getWeight() -> NSNumber {
         if let weight = self.weight {
-            return weight.stringValue.stringByAppendingString(" gr")
+            return weight
         }
-        return "0 gr"
+        return 500
+    }
+    
+    func getWeightString() -> String {
+        return self.getWeight().stringValue.stringByAppendingString(" gr")
     }
     
     func addWeekDay(weekDay: NSNumber) {
@@ -74,10 +86,6 @@ class FeedSetting: PFObject, PFSubclassing {
     }
     
     func hasWeekDay(weekDay: NSNumber) -> Bool{
-        if days == nil {
-            days = NSMutableArray()
-        }
-        
-        return days!.containsObject(weekDay)
+        return getDays().containsObject(weekDay)
     }
 }

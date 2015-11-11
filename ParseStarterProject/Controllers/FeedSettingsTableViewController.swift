@@ -61,7 +61,8 @@ class FeedSettingsTableViewController : PFQueryTableViewController {
         separator.backgroundColor = UIColor.lightGrayColor().CGColor
         separator.frame = CGRectMake(15, 80, self.view.frame.size.width-15, 1);
         cell?.layer.addSublayer(separator)
-        
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+
         return cell
     }
     
