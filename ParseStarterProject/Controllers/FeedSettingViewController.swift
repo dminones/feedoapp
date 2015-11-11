@@ -12,6 +12,7 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     var datePicker : UIDatePicker = UIDatePicker()
     var pickerView : UIPickerView = UIPickerView()
     var editingWeight : Bool = Bool()
+    var editingTime : Bool = Bool()
     var pickerViewFrame : CGRect?
     var pickerData : NSMutableArray = []
     
@@ -27,13 +28,8 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel:")
         self.navigationItem.leftBarButtonItem = cancelButton
 
-        datePicker.datePickerMode = UIDatePickerMode.Time
-        datePicker.backgroundColor = UIColor.whiteColor();
-        if let date = feedSetting.time {
-            datePicker.date = date
-        }
-        
-        self.initPickerData()
+        self.initDatePicker()
+        self.initWeightData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -41,7 +37,17 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
         self.tableView?.reloadData()
     }
     
-    func initPickerData() {
+    func initDatePicker() {
+        datePicker.hidden = true
+        datePicker.addTarget(self, action:"valueDateChanged:", forControlEvents:.ValueChanged);
+        datePicker.datePickerMode = UIDatePickerMode.Time
+        datePicker.backgroundColor = UIColor.whiteColor();
+        if let date = feedSetting.time {
+            datePicker.date = date
+        }
+    }
+    
+    func initWeightData() {
         
         for var i = 0; i<2000; i = i+50 {
             pickerData.addObject(i)
@@ -66,12 +72,7 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     }
     
     func saveFeedSetting(sender: UIBarButtonItem) {
-        let date = datePicker.date
-        let hourFormatter = NSDateFormatter()
-        hourFormatter.locale = NSLocale(localeIdentifier:"en_US")
-        hourFormatter.dateFormat = "HH"
         
-        feedSetting.time = date
         LoadingOverlay.shared.showOverlay(self.view)
 
         feedSetting.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
@@ -119,51 +120,72 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
         }
         
-        if (indexPath.row == 0) {
-            cell?.textLabel?.text = "weight"
-            cell?.detailTextLabel?.text = feedSetting.getWeightString()
-            cell.accessoryType = .None
-        }else if (indexPath.row == 2) {
-            cell?.textLabel?.text = "repeat"
-            cell?.detailTextLabel?.text = feedSetting.daysString()
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        } else {
-            cell.contentView.addSubview(self.pickerView)
+        switch indexPath.row {
+            case 0:
+                cell?.textLabel?.text = "time"
+                cell?.detailTextLabel?.text = feedSetting.timeToShow()
+                cell.accessoryType = .None
+            case 1:
+                cell.contentView.addSubview(self.datePicker)
+            case 2:
+                cell?.textLabel?.text = "weight"
+                cell?.detailTextLabel?.text = feedSetting.getWeightString()
+                cell.accessoryType = .None
+            case 3:
+                cell.contentView.addSubview(self.pickerView)
+            default:
+                cell?.textLabel?.text = "repeat"
+                cell?.detailTextLabel?.text = feedSetting.daysString()
+                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row == 2) {
+        if (indexPath.row == 4) {
             self.performSegueWithIdentifier("FeedSettingToFeedDays", sender: nil)
         }
         if (indexPath.row == 0) {
+            //toogle
+            editingTime = !editingTime
+            
+            //is just hidden the first time
+            datePicker.hidden = false
+            if (editingTime) {
+                self.showPickerView(datePicker)
+            } else {
+                self.hidePickerView(datePicker)
+            }
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+        
+        if (indexPath.row == 2) {
             //toogle
             editingWeight = !editingWeight
             
             //is just hidden the first time
             pickerView.hidden = false
             if (editingWeight) {
-                self.showPickerView()
+                self.showPickerView(pickerView)
             } else {
-                self.hidePickerView()
+                self.hidePickerView(pickerView)
             }
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
     }
     
-    func hidePickerView() {
+    func hidePickerView(picker: UIView) {
         UIView.animateWithDuration(0.2) { () -> Void in
-            var frame = self.pickerView.frame
+            var frame = picker.frame
             frame.size.height = 0
-            self.pickerView.frame = frame
+            picker.frame = frame
         }
     }
     
-    func showPickerView() {
+    func showPickerView(picker: UIView) {
         UIView.animateWithDuration(0.2) { () -> Void in
-            self.pickerView.frame = self.pickerViewFrame!
+            picker.frame = self.pickerViewFrame!
         }
     }
     
@@ -175,35 +197,29 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section==1){
-            return 3
+            return 5
         }
         return 0
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if(indexPath.row == 1) {
+        if(indexPath.row == 3) {
             return editingWeight ? (self.pickerViewFrame?.height)! : 0
+        }
+        if(indexPath.row == 1) {
+            return editingTime ? (self.pickerViewFrame?.height)! : 0
         }
         return self.tableView.rowHeight;
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     override func tableView( tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 2 ? 44 : 0;
+        return section == 1 ? 44 : 0;
     }
     
-    
-    override func tableView( tableView: UITableView,viewForHeaderInSection section: Int) -> UIView? {
-        return section == 0 ? datePicker : nil;
-    }
-    
-    override func tableView( tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? self.datePicker.frame.height : 0;
-    }
-
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if (section != 2){
             return nil;
@@ -238,4 +254,16 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         feedSetting.weight = pickerData[row] as? NSNumber
     }
+    
+    
+    // The methods to close the keyboard when editing is finished
+    @IBAction func valueDateChanged(sender: AnyObject) {
+        let date = datePicker.date
+        let hourFormatter = NSDateFormatter()
+        hourFormatter.locale = NSLocale(localeIdentifier:"en_US")
+        hourFormatter.dateFormat = "HH"
+        
+        feedSetting.time = date
+    }
+    
 }
