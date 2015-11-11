@@ -12,12 +12,19 @@ import ParseUI
 
 
 class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControllerDelegate{
-    
+
+    var imageView : UIImageView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addDevice:"))
         self.navigationItem.rightBarButtonItem = barButton
+        
+        let image: UIImage = UIImage(named: "image-smartfeeder_dog.png")!
+        imageView = UIImageView(image: image)
+        imageView!.frame = CGRectMake(0,0,self.view.frame.size.width,200)
+        imageView?.contentMode = .ScaleAspectFill
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,5 +62,13 @@ class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControl
     
     func addDevice(sender: UIBarButtonItem) {
         self.performSegueWithIdentifier("DeviceListToAddDevice", sender: nil)
+    }
+    
+    override func tableView( tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return (imageView?.frame.size.height)!;
+    }
+    
+    override func tableView( tableView: UITableView,viewForHeaderInSection section: Int) -> UIView? {
+        return imageView;
     }
 }
