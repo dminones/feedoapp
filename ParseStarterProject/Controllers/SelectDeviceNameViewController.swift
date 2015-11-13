@@ -52,6 +52,7 @@ class SelectDeviceNameViewController: UIViewController {
                     self.setupTextView()
                     self.device = device
                     self.label?.text = "Select the name you want to use to identify your device."
+                    self.textField?.text = device.name
                     let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action:"done")
                     self.navigationItem.rightBarButtonItem = doneButton
                 }
