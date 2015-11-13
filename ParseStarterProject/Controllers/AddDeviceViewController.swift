@@ -13,7 +13,7 @@ import AVFoundation
 class AddDeviceViewController : UIViewController {
 
     lazy var reader = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
-    var device: Device = Device()
+    var deviceCode : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class AddDeviceViewController : UIViewController {
             reader.completionBlock = { (result: String?) in
                 self.reader.dismissViewControllerAnimated(true, completion: nil)
                 if (result != nil) {
-                    self.device.code = result!
+                    self.deviceCode = result!
                     self.switchToSetName()
                 } else {
                     self.cancel()
@@ -46,7 +46,7 @@ class AddDeviceViewController : UIViewController {
     
     func switchToSetName() {
         let viewController = storyboard!.instantiateViewControllerWithIdentifier("SelectDeviceNameViewController") as! SelectDeviceNameViewController
-        viewController.device = self.device
+        viewController.deviceCode = self.deviceCode
         self.navigationController?.pushViewController(viewController, animated: false)
     }
     

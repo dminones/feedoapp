@@ -162,7 +162,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para agregar un dispositivo podés usar el código del manual o escanear direcmtanemte el código QR" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="UnK-hK-dcn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para agregar un dispositivo primero conectalo a internet y luego escanea el código QR del manual" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="UnK-hK-dcn">
                                 <rect key="frame" x="20" y="470" width="560" height="36"/>
                                 <animations/>
                                 <constraints>
@@ -230,16 +230,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Device Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKi-bY-nmO">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Device Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKi-bY-nmO">
                                 <rect key="frame" x="20" y="150" width="560" height="42"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="27W-YS-Y1t"/>
+                                    <constraint firstAttribute="height" constant="42" id="27W-YS-Y1t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the name you want to use to identify your device." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-Te-uUl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linking Device..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-Te-uUl">
                                 <rect key="frame" x="20" y="96" width="560" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -253,15 +253,16 @@
                             <constraint firstAttribute="leadingMargin" secondItem="WdT-Te-uUl" secondAttribute="leading" id="6MR-h3-Dre"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WdT-Te-uUl" secondAttribute="trailing" id="Lbt-yK-jtA"/>
                             <constraint firstItem="WdT-Te-uUl" firstAttribute="leading" secondItem="J7F-hf-lmG" secondAttribute="leadingMargin" id="ORK-Zr-ZzD"/>
-                            <constraint firstItem="xKi-bY-nmO" firstAttribute="leading" secondItem="J7F-hf-lmG" secondAttribute="leadingMargin" constant="53" id="SZP-Gf-aTz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xKi-bY-nmO" secondAttribute="trailing" constant="52" id="bcJ-A2-yib"/>
+                            <constraint firstItem="xKi-bY-nmO" firstAttribute="leading" secondItem="J7F-hf-lmG" secondAttribute="leadingMargin" id="SZP-Gf-aTz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xKi-bY-nmO" secondAttribute="trailing" id="bcJ-A2-yib"/>
                             <constraint firstItem="xKi-bY-nmO" firstAttribute="top" secondItem="WdT-Te-uUl" secondAttribute="bottom" constant="33" id="sMo-iy-DRh"/>
                             <constraint firstItem="WdT-Te-uUl" firstAttribute="top" secondItem="Czo-WV-3DD" secondAttribute="bottom" constant="32" id="uOh-km-siI"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="textView" destination="xKi-bY-nmO" id="zDD-1g-Za0"/>
+                        <outlet property="label" destination="WdT-Te-uUl" id="b8U-Ok-jLI"/>
+                        <outlet property="textField" destination="xKi-bY-nmO" id="Sbq-xi-x24"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Hu-4R-7hR" userLabel="First Responder" sceneMemberID="firstResponder"/>
