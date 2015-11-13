@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SelectDeviceNameViewController: UIViewController {
+class SelectDeviceNameViewController: UIViewController, UITextFieldDelegate {
 
     var device : Device?
     var deviceCode: String?
@@ -30,16 +30,23 @@ class SelectDeviceNameViewController: UIViewController {
         self.fetchDevice()
     }
     
-    func setupTextView() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.layoutTextField()
+    }
+    
+    func layoutTextField() {
         let border = CALayer()
         let width = CGFloat(1.0)
         border.borderColor = UIColor.darkGrayColor().CGColor
         border.frame = CGRect(x: 0, y: textField!.frame.size.height - width, width:  textField!.frame.size.width, height: textField!.frame.size.height)
-        
         border.borderWidth = width
-        self.textField?.hidden = false
         textField!.layer.addSublayer(border)
         textField!.layer.masksToBounds = true
+    }
+    
+    func setupTextView() {
+        self.textField?.hidden = false
         self.textField?.becomeFirstResponder()
     }
     
@@ -52,7 +59,6 @@ class SelectDeviceNameViewController: UIViewController {
                     self.setupTextView()
                     self.device = device
                     self.label?.text = "Select the name you want to use to identify your device."
-                    self.textField?.text = device.name
                     let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action:"done")
                     self.navigationItem.rightBarButtonItem = doneButton
                 }
@@ -112,5 +118,11 @@ class SelectDeviceNameViewController: UIViewController {
         
         alert.addAction(cancelAction)
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.done()
+        return false
     }
 }
