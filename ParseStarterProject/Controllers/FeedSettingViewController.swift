@@ -41,9 +41,11 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
         datePicker.hidden = true
         datePicker.datePickerMode = UIDatePickerMode.Time
         datePicker.backgroundColor = UIColor.whiteColor();
-        if let date = feedSetting.time {
-            datePicker.date = date
+        
+        if feedSetting.time == nil {
+            feedSetting.time = NSDate()
         }
+        datePicker.date = feedSetting.time!
     }
     
     func initWeightData() {
@@ -78,6 +80,8 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
             LoadingOverlay.shared.hideOverlayView()
             if !success {
                 self.showError(error,title: "Cannot Save", message: "Please try again later")
+            } else {
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
