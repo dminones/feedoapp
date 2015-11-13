@@ -13,28 +13,27 @@ import AVFoundation
 class AddDeviceViewController : UIViewController {
 
     lazy var reader = QRCodeReaderViewController(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
-
+    var device: Device = Device()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let navbar = UINavigationBar(frame: CGRectMake(0, 20,
-            UIScreen.mainScreen().bounds.size.width,50));
-        self.view.addSubview(navbar)
         
-        let navItem = UINavigationItem(title: "Add Device")
+        self.title = "Add Device"
         let navBarbutton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action:"cancel")
-        navItem.rightBarButtonItem = navBarbutton
-        
-        navbar.items = [navItem]
+        self.navigationItem.leftBarButtonItem = navBarbutton
     }
     
     @IBAction func goToAddDevice(sender: UIButton) {
         if (QRCodeReader.isAvailable()) {
             // Or by using the closure pattern
             reader.completionBlock = { (result: String?) in
-                if (result != nil) {
-                    NSLog(result!)
-                }
                 self.reader.dismissViewControllerAnimated(true, completion: nil)
+                if (result != nil) {
+                    self.device.code = result!
+                    self.switchToSetName()
+                } else {
+                    self.cancel()
+                }
             }
             
             // Presents the reader as modal form sheet
@@ -45,11 +44,14 @@ class AddDeviceViewController : UIViewController {
         }
     }
     
-    @IBAction func addDeviceWithCode(sender: UIButton) {
-        
+    func switchToSetName() {
+        let viewController = storyboard!.instantiateViewControllerWithIdentifier("SelectDeviceNameViewController") as! SelectDeviceNameViewController
+        viewController.device = self.device
+        self.navigationController?.pushViewController(viewController, animated: false)
     }
     
     func cancel() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
     }
+
 }

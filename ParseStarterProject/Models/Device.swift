@@ -12,6 +12,7 @@ import Parse
 let kMaxFood = 100
 
 class Device: PFObject, PFSubclassing {
+    @NSManaged  var code : String
     @NSManaged  var name : String
     @NSManaged  var foodStatus : NSNumber?
     @NSManaged  var deviceCapacity : NSNumber
@@ -52,7 +53,11 @@ class Device: PFObject, PFSubclassing {
     func getLastFeedingString() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "d/M hh:mm"
-        return dateFormatter.stringFromDate(self.lastFeeding!)
+        if let lastFeeding = self.lastFeeding {
+            return dateFormatter.stringFromDate(lastFeeding)
+        } else {
+            return "Never"
+        }
     }
     
     func getSensorCloseString () -> String {

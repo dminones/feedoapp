@@ -67,6 +67,7 @@ class DevicesTableViewController: PFQueryTableViewController, PFLogInViewControl
     
     
     func addDevice(sender: UIBarButtonItem) {
+        
         self.performSegueWithIdentifier("DeviceListToAddDevice", sender: nil)
     }
     

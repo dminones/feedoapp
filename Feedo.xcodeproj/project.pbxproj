@@ -38,6 +38,7 @@
 		A3B13D0C1BF076D800A44A21 /* image-smartfeeder_dog.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B13D0B1BF076D800A44A21 /* image-smartfeeder_dog.png */; };
 		A3CBF9921B6709F900D6BA26 /* FeedSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3CBF9911B6709F900D6BA26 /* FeedSetting.storyboard */; };
 		A3CBF9941B671F7B00D6BA26 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CBF9931B671F7B00D6BA26 /* LoadingOverlay.swift */; };
+		A3DC73941BF5A98300E1E6E0 /* SelectDeviceNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC73931BF5A98300E1E6E0 /* SelectDeviceNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		A3B13D0B1BF076D800A44A21 /* image-smartfeeder_dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-smartfeeder_dog.png"; sourceTree = "<group>"; };
 		A3CBF9911B6709F900D6BA26 /* FeedSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedSetting.storyboard; sourceTree = "<group>"; };
 		A3CBF9931B671F7B00D6BA26 /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		A3DC73931BF5A98300E1E6E0 /* SelectDeviceNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDeviceNameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				A3A481321B62EA45000895EE /* FeedSettingViewController.swift */,
 				A35BB8531B6815C3001CD650 /* DayWeeksTableViewController.swift */,
 				A3893DA11BEE6FE900734F6E /* AddDeviceViewController.swift */,
+				A3DC73931BF5A98300E1E6E0 /* SelectDeviceNameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				A3A4812C1B62C280000895EE /* Device.swift in Sources */,
 				A35C08D71B42B52A008CA171 /* DevicesTableViewController.swift in Sources */,
 				A3A481331B62EA45000895EE /* FeedSettingViewController.swift in Sources */,
+				A3DC73941BF5A98300E1E6E0 /* SelectDeviceNameViewController.swift in Sources */,
 				A3A481301B62D493000895EE /* FeedSetting.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 			);
