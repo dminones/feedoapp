@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // If you would like all objects to be private by default, remove this line.
         defaultACL.setPublicReadAccess(true)
-        
+        defaultACL.setPublicWriteAccess(true)
         PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser:true)
         
         if application.applicationState != UIApplicationState.Background {
@@ -89,15 +89,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         //  Swift 2.0
         //
-        //        if #available(iOS 8.0, *) {
-        //            let types: UIUserNotificationType = [.Alert, .Badge, .Sound]
-        //            let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
-        //            application.registerUserNotificationSettings(settings)
-        //            application.registerForRemoteNotifications()
-        //        } else {
-        //            let types: UIRemoteNotificationType = [.Alert, .Badge, .Sound]
-        //            application.registerForRemoteNotificationTypes(types)
-        //        }
+                if #available(iOS 8.0, *) {
+                    let types: UIUserNotificationType = [.Alert, .Badge, .Sound]
+                    let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+                    application.registerUserNotificationSettings(settings)
+                    application.registerForRemoteNotifications()
+                } else {
+                    let types: UIRemoteNotificationType = [.Alert, .Badge, .Sound]
+                    application.registerForRemoteNotificationTypes(types)
+                }
         
         return true
     }
@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //     if application.applicationState == UIApplicationState.Inactive {
     //         PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
     //     }
-    // }
+    //}
     
     //--------------------------------------
     // MARK: Facebook SDK Integration

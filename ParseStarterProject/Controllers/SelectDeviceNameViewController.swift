@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class SelectDeviceNameViewController: UIViewController, UITextFieldDelegate {
-
+    let userId = 1
     var device : Device?
     var deviceCode: String?
     @IBOutlet var textField : UITextField?
@@ -96,6 +96,8 @@ class SelectDeviceNameViewController: UIViewController, UITextFieldDelegate {
     
     func done() {
         device!.name = (textField?.text)!
+        device!.userId = userId
+         
         LoadingOverlay.shared.showOverlay(self.view)
         device!.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             LoadingOverlay.shared.hideOverlayView()

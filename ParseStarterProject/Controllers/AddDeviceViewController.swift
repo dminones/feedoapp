@@ -40,7 +40,9 @@ class AddDeviceViewController : UIViewController {
             reader.modalPresentationStyle = .FormSheet
             presentViewController(reader, animated: true, completion: nil)
         } else {
-            NSLog("Pongo un texto");
+            NSLog("Miento que ya encontre el dispositivo");
+            self.deviceCode = "deviceId=1"
+            self.switchToSetName()
         }
     }
     

@@ -12,13 +12,14 @@ import Parse
 let kMaxFood = 100
 
 class Device: PFObject, PFSubclassing {
-    @NSManaged  var code : String
-    @NSManaged  var name : String
-    @NSManaged  var foodStatus : NSNumber?
-    @NSManaged  var deviceCapacity : NSNumber
-    @NSManaged  var lastFeeding : NSDate?
+    @NSManaged var code : String
+    @NSManaged var name : String
+    @NSManaged var foodStatus : NSNumber?
+    @NSManaged var deviceCapacity : NSNumber
+    @NSManaged var lastFeeding : NSDate?
     @NSManaged var sensorClose : NSNumber?
-    
+    @NSManaged var userId : NSNumber?
+
     var configLabels = ["Remaining Food", "Last Feeding", "Sensor Closed","Capacity"]
     
     static func parseClassName() -> String {
