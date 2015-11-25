@@ -114,7 +114,7 @@ class DeviceViewController: UITableViewController {
     }
     
     func deleteDevice(sender: UIBarButtonItem) {
-        LoadingOverlay.shared.showOverlay(self.view)
+        LoadingOverlay.shared.showOverlay(self.view.superview!)
         
         self.device!.deleteInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             if !success {

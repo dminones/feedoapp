@@ -74,7 +74,7 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     
     func saveFeedSetting(sender: UIBarButtonItem) {
         
-        LoadingOverlay.shared.showOverlay(self.view)
+        LoadingOverlay.shared.showOverlay(self.view.superview!)
 
         feedSetting.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             LoadingOverlay.shared.hideOverlayView()
@@ -104,7 +104,7 @@ class FeedSettingViewController: UITableViewController , UIPickerViewDataSource,
     }
     
     func deleteFeedSetting(sender: UIBarButtonItem) {
-        LoadingOverlay.shared.showOverlay(self.view)
+        LoadingOverlay.shared.showOverlay(self.view.superview!)
         
         feedSetting.deleteInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             LoadingOverlay.shared.hideOverlayView()

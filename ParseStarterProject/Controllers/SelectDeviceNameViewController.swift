@@ -98,7 +98,7 @@ class SelectDeviceNameViewController: UIViewController, UITextFieldDelegate {
         device!.name = (textField?.text)!
         device!.userId = userId
          
-        LoadingOverlay.shared.showOverlay(self.view)
+        LoadingOverlay.shared.showOverlay(self.view.superview!)
         device!.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             LoadingOverlay.shared.hideOverlayView()
             if !success {
