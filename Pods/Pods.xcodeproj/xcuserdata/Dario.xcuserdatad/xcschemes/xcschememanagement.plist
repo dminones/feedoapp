@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Feedo.xcscheme</key>
+		<key>Pods-Feedo-QRCodeReader.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>QRCodeReader.swift.xcscheme</key>
+		<key>Pods-Feedo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4D836974DACDFA459E71119412876007</key>
+		<key>79829A7CD2694D8D7719AC53</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1D55F62A3011B5A90521D60D371BB5F</key>
+		<key>7E31877966AD131CD71B59C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
