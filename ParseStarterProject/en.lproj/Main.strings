@@ -1,0 +1,18 @@
+
+/* Class = "UITableViewController"; title = "Devices"; ObjectID = "0Ew-mv-5T1"; */
+"0Ew-mv-5T1.title" = "Devices";
+
+/* Class = "UIButton"; normalTitle = "Escanear código QR"; ObjectID = "6ah-54-lQf"; */
+"6ah-54-lQf.normalTitle" = "Escanear código QR";
+
+/* Class = "UILabel"; text = "Para agregar un dispositivo primero conectalo a internet y luego escanea el código QR del manual"; ObjectID = "UnK-hK-dcn"; */
+"UnK-hK-dcn.text" = "Para agregar un dispositivo primero conectalo a internet y luego escanea el código QR del manual";
+
+/* Class = "UILabel"; text = "Linking Device..."; ObjectID = "WdT-Te-uUl"; */
+"WdT-Te-uUl.text" = "Linking Device...";
+
+/* Class = "UINavigationItem"; title = "Devices"; ObjectID = "aGI-d9-iu7"; */
+"aGI-d9-iu7.title" = "Devices";
+
+/* Class = "UITextField"; placeholder = "Device Name"; ObjectID = "xKi-bY-nmO"; */
+"xKi-bY-nmO.placeholder" = "Device Name";
